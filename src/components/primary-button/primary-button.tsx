@@ -2,19 +2,27 @@ import React from "react";
 import styles from "./primary-button.module.css";
 
 interface PrimaryButton {
+  disabled: boolean;
+  isClicked: boolean;
   text: string;
   onClick: VoidFunction;
 }
 
-export const PrimaryButton: React.FC<PrimaryButton> = ({ text, onClick }) => {
+export const PrimaryButton: React.FC<PrimaryButton> = ({
+  disabled,
+  isClicked,
+  text,
+  onClick,
+}) => {
   return (
     <button
+      disabled={disabled}
       className={styles.pinkButton}
       type="button"
       onClick={onClick}
       aria-details={`${text} button`}
     >
-      {text}
+      {isClicked ? "processing..." : text}
     </button>
   );
 };

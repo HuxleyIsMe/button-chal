@@ -4,6 +4,15 @@ import { PrimaryButton } from "./components/primary-button";
 
 function App() {
   const [hasClicked, setHasClicked] = React.useState(false);
+  const [isLoaded, setHasLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    if (hasClicked) {
+      let delayedTimeout = setTimeout(() => setHasLoaded(true), 3000);
+      return () => clearTimeout(delayedTimeout);
+    }
+  }, [hasClicked]);
+
   return (
     <div className="App">
       <h1>Button Challenge</h1>
@@ -17,10 +26,12 @@ function App() {
         disappear and should be replaced with a new paragraph which shows{" "}
         <em>"This is your processed data."</em>.
       </p>
-      {hasClicked ? (
+      {isLoaded ? (
         <div data-testid="loaded-content">hi data</div>
       ) : (
         <PrimaryButton
+          isClicked={hasClicked}
+          disabled={hasClicked}
           text="Style Me!"
           onClick={() => setHasClicked((prev) => !prev)}
         />
