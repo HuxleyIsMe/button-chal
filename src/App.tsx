@@ -3,6 +3,7 @@ import "./App.css";
 import { PrimaryButton } from "./components/primary-button";
 
 function App() {
+  const [hasClicked, setHasClicked] = React.useState(false);
   return (
     <div className="App">
       <h1>Button Challenge</h1>
@@ -16,8 +17,14 @@ function App() {
         disappear and should be replaced with a new paragraph which shows{" "}
         <em>"This is your processed data."</em>.
       </p>
-
-      <PrimaryButton text="Style Me!" />
+      {hasClicked ? (
+        <div data-testid="loaded-content">hi data</div>
+      ) : (
+        <PrimaryButton
+          text="Style Me!"
+          onClick={() => setHasClicked((prev) => !prev)}
+        />
+      )}
     </div>
   );
 }

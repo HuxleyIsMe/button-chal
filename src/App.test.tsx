@@ -1,9 +1,19 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App loading", () => {
+  it("displays a button that onclick shows a paragraph of text", async () => {
+    render(<App />);
+    const primaryButton = screen.getByRole("button");
+    expect(primaryButton).toBeInTheDocument();
+    userEvent.click(primaryButton);
+    await waitForElementToBeRemoved(primaryButton);
+    expect(screen.getByTestId(/loaded-content/));
+  });
 });
