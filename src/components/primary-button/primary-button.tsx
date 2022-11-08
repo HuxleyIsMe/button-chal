@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./primary-button.module.css";
 
+/** This doesnt need to be its own comp right now, however i wanted to show how i would split this out */
+
 interface PrimaryButton {
   disabled: boolean;
   isClicked: boolean;

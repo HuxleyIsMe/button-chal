@@ -19,7 +19,7 @@ describe("App loading", () => {
     expect(screen.getByTestId(/loaded-content/));
   });
 
-  describe("button", () => {
+  describe("clicking the button", () => {
     it("changes text to 'Processing' and disappeares after 3 seconds", async () => {
       render(<App />);
       const primaryButton = screen.getByRole("button");

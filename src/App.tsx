@@ -4,13 +4,17 @@ import { PrimaryButton } from "./components/primary-button";
 
 function App() {
   const [hasClicked, setHasClicked] = React.useState(false);
-  const [isLoaded, setHasLoaded] = React.useState(false);
+  const [hasLoaded, setHasLoaded] = React.useState(false);
 
   React.useEffect(() => {
+    let delayedTimeout: null | NodeJS.Timeout = null;
     if (hasClicked) {
-      let delayedTimeout = setTimeout(() => setHasLoaded(true), 3000);
-      return () => clearTimeout(delayedTimeout);
+      delayedTimeout = setTimeout(() => setHasLoaded(true), 3000);
     }
+    return () =>
+      delayedTimeout
+        ? clearTimeout(delayedTimeout as NodeJS.Timeout)
+        : undefined;
   }, [hasClicked]);
 
   return (
@@ -26,7 +30,7 @@ function App() {
         disappear and should be replaced with a new paragraph which shows{" "}
         <em>"This is your processed data."</em>.
       </p>
-      {isLoaded ? (
+      {hasLoaded ? (
         <div data-testid="loaded-content">This is your processed data.</div>
       ) : (
         <PrimaryButton
