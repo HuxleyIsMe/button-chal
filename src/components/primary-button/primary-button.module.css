@@ -1,0 +1,15 @@
+.pinkButton {
+  background: pink;
+  border-radius: 5px;
+  height: 40px;
+  width: 120px;
+  border: none;
+}
+
+.pinkButton:hover {
+  transition: all 1s;
+  background: whitesmoke;
+  box-shadow: 2pt 2pt pink;
+  color: black;
+  cursor: pointer;
+}

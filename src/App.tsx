@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { PrimaryButton } from "./components/primary-button";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Button Challenge</h1>
+      <p>
+        The following button should be pink without borders and should show some
+        hover effect (feel free to choose anything you want).
+      </p>
+      <p>
+        If you click the button, the button should become disabled and should
+        show <em>"Processing..."</em>. After 3 seconds the button should
+        disappear and should be replaced with a new paragraph which shows{" "}
+        <em>"This is your processed data."</em>.
+      </p>
+
+      <PrimaryButton text="Style Me!" />
     </div>
   );
 }
