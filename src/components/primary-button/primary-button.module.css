@@ -2,14 +2,21 @@
   background: pink;
   border-radius: 5px;
   height: 40px;
+  font-weight: 600;
   width: 120px;
+  color: black;
   border: none;
 }
 
-.pinkButton:hover {
+.pinkButton:not(.pinkButton:disabled).pinkButton:hover {
   transition: all 1s;
   background: whitesmoke;
   box-shadow: 2pt 2pt pink;
   color: black;
   cursor: pointer;
+}
+
+.pinkButton:disabled {
+  background: gainsboro;
+  color: black;
 }

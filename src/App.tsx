@@ -27,7 +27,7 @@ function App() {
         <em>"This is your processed data."</em>.
       </p>
       {isLoaded ? (
-        <div data-testid="loaded-content">hi data</div>
+        <div data-testid="loaded-content">This is your processed data.</div>
       ) : (
         <PrimaryButton
           isClicked={hasClicked}
